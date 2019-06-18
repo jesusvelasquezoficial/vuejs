@@ -5,8 +5,8 @@
 </head>
 <body>
   <div id="app">
-    <button type="button" name="sumar" >Sumar 1</button>
-    <button type="button" name="restar" >Restar 1</button>
+    <button type="button" name="sumar" v-on:click="sumar">Sumar 1</button>
+    <button type="button" name="restar" @click="restar">Restar 1</button>
     El contador esta en {{ contador }}
   </div>
 
