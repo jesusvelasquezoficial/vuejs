@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script type="text/javascript">
     Vue.component('cursos', {
+      props:['curso', 'cursosSeleccionados'],
       template: `
         <div>
           <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
