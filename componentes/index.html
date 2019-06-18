@@ -8,7 +8,7 @@
     <form @submit.prevent="submit">
       <h2>¿Cuales son tus cursos favoritos?</h2>
       <template v-for="curso in cursos">
-        <cursos :curso="curso"></cursos>
+        <cursos :curso="curso" :cursos-seleccionados="cursosSeleccionados"></cursos>
       </template>
       <button type="submit">Enviar</button>
       </form>
