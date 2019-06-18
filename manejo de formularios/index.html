@@ -8,7 +8,7 @@
     <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
     <p>Tu nombre en mayúscula es: {{ nombre | uppercase }}</p>
 
-    <form action="" method="get">
+    <form @submit.prevent>
       <h2>¿Cuales son tus cursos favoritos?</h2>
       <input type="checkbox" name="cursos" id="vue" value="vue">
       <label for="vue">Curso de Vue.js</label>
@@ -32,6 +32,11 @@
       filters:{
         uppercase:  (str) => {
           return str.toUpperCase()
+        }
+      },
+      methods: {
+        submit:function () {
+          console.log('Se ejecuto el metodo submit.');
         }
       }
     })
