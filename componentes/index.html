@@ -8,7 +8,7 @@
     <form @submit.prevent="submit">
       <h2>¿Cuales son tus cursos favoritos?</h2>
       <template v-for="curso in cursos">
-        <cursos :curso="curso" :cursos-seleccionados="cursosSeleccionados"></cursos>
+        <cursos :curso="curso" @checked="selectCurso"></cursos>
       </template>
       <button type="submit">Enviar</button>
       </form>
@@ -17,10 +17,15 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script type="text/javascript">
     Vue.component('cursos', {
-      props:['curso', 'cursosSeleccionados'],
+      props:['curso'],
+      methods: {
+        onchange: function(ev){
+          this.$emit('checked', this.curso.value, ev.target.checked)
+        }
+      },
       template: `
         <div>
-          <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
+          <input type="checkbox" @change="onchange" :id="curso.value" :value="curso.value">
           <label :for="curso.value">{{curso.nombre}}</label>
         </div>
       `
@@ -41,6 +46,14 @@
         submit:function () {
           console.log('Se ejecuto el metodo submit');
           console.log(this.cursosSeleccionados);
+        },
+        selectCurso: function (curso, checked) {
+          if (checked) {
+            this.cursosSeleccionados.push(curso)
+          }else{
+            let index = this.cursoscursosSeleccionados.indexOf(curso)
+            this.cursosSeleccionados.splice(index, 1)
+          }
         }
       }
     })
