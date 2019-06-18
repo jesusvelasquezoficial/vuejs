@@ -8,8 +8,9 @@
     <form @submit.prevent="submit">
       <h2>¿Cuales son tus cursos favoritos?</h2>
       <template v-for="curso in cursos">
-        <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
-        <label :for="curso.value">{{curso.nombre}}</label>
+        <cursos></cursos>
+        <!-- <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
+        <label :for="curso.value">{{curso.nombre}}</label> -->
       </template>
       </form>
   </div>
