@@ -7,6 +7,19 @@
   <div id="app">
     <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
     <p>Tu nombre en mayúscula es: {{ nombre | uppercase }}</p>
+
+    <form action="" method="get">
+      <h2>¿Cuales son tus cursos favoritos?</h2>
+      <input type="checkbox" name="cursos" id="vue" value="vue">
+      <label for="vue">Curso de Vue.js</label>
+      <input type="checkbox" name="cursos" id="seo" value="seo">
+      <label for="seo">Curso de SEO</label>
+      <input type="checkbox" name="cursos" id="react" value="react">
+      <label for="react">Curso de React</label>
+      <input type="checkbox" name="cursos" id="elixir" value="elixir">
+      <label for="elixir">Curso de Elixir</label>
+      <button type="submit">Enviar</button>
+    </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
