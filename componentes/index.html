@@ -9,16 +9,19 @@
       <h2>¿Cuales son tus cursos favoritos?</h2>
       <template v-for="curso in cursos">
         <cursos></cursos>
-        <!-- <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
-        <label :for="curso.value">{{curso.nombre}}</label> -->
       </template>
       </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script type="text/javascript">
-    vue.component(cursos, {
-
+    Vue.component(cursos, {
+      template: `
+        <div>
+          <input type="checkbox" v-model="cursosSeleccionados" :id="curso.value" :value="curso.value">
+          <label :for="curso.value">{{curso.nombre}}</label>
+        </div>
+      `
     });
 
     let app = new Vue({
