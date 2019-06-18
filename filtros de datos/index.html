@@ -18,11 +18,11 @@
         subtitulo: 'Este es el curso de vuejs'
       },
       filters:{
-        uppercase:()=>{
-
+        uppercase:(str)=>{
+          return str.toUpperCase();
         },
-        lowercase: () =>{
-
+        lowercase: (str) =>{
+          return str.toLowerCase();
         }
       }
     })
