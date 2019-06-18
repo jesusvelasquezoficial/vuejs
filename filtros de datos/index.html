@@ -7,6 +7,7 @@
   <div id="app">
     <h1>{{ titulo | uppercase }}</h1>
     <h2>{{ subtitulo | lowercase }}</h2>
+    <h2>{{ texto | capitalize }}</h2>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -15,7 +16,8 @@
       el: '#app',
       data: {
         titulo: 'Este es mi titulo',
-        subtitulo: 'Este es el curso de vuejs'
+        subtitulo: 'Este es el curso de vuejs',
+        texto: 'esto esta en capitalize'
       },
       filters:{
         uppercase:(str)=>{
@@ -23,6 +25,9 @@
         },
         lowercase: (str) =>{
           return str.toLowerCase();
+        },
+        capitalize: (str) =>{
+          return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
         }
       }
     })
