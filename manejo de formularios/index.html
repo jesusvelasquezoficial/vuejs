@@ -5,7 +5,8 @@
 </head>
 <body>
   <div id="app">
-
+    <input type="text" name="nombre" placeholder="Ingresa tu nombre">
+    <p>{{ nombre }}</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -13,7 +14,7 @@
     let app = new Vue({
       el: '#app',
       data: {
-        
+        nombre: ''
       }
     })
   </script>
