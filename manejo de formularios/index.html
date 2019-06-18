@@ -10,13 +10,13 @@
 
     <form @submit.prevent="submit">
       <h2>¿Cuales son tus cursos favoritos?</h2>
-      <input type="checkbox" name="cursos" id="vue" value="vue">
+      <input type="checkbox" v-model="cursos" id="vue" value="vue">
       <label for="vue">Curso de Vue.js</label>
-      <input type="checkbox" name="cursos" id="seo" value="seo">
+      <input type="checkbox" v-model="cursos" id="seo" value="seo">
       <label for="seo">Curso de SEO</label>
-      <input type="checkbox" name="cursos" id="react" value="react">
+      <input type="checkbox" v-model="cursos" id="react" value="react">
       <label for="react">Curso de React</label>
-      <input type="checkbox" name="cursos" id="elixir" value="elixir">
+      <input type="checkbox" v-model="cursos" id="elixir" value="elixir">
       <label for="elixir">Curso de Elixir</label>
       <button type="submit">Enviar</button>
     </form>
@@ -27,7 +27,8 @@
     let app = new Vue({
       el: '#app',
       data: {
-        nombre: ''
+        nombre: '',
+        cursos: []
       },
       filters:{
         uppercase:  (str) => {
@@ -37,6 +38,7 @@
       methods: {
         submit:function () {
           console.log('Se ejecuto el metodo submit.');
+          console.log(this.cursos);
         }
       }
     })
