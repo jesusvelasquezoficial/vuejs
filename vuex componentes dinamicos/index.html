@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Curso Vue.js</title>
+</head>
+<body>
+
+  <div id="app">
+    <titulo></titulo>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+
+
+  <script type="text/javascript">
+    Vue.component('titulo',{
+      template: `
+        <div class="">
+          <h1>numero {{ $store.state.numero }}</h1>
+          <hijo></hijo>
+        </div>
+      `
+    });
+
+    Vue.component('hijo',{
+      template: `
+        <div class="">
+          <button @click="$store.commit('aumentar')">+</button>
+          <h1>numero {{ $store.state.numero }}</h1>
+        </div>
+      `
+    });
+
+    const store = new Vuex.Store({
+      state: {
+        numero: 10
+      },
+      mutations: {
+        aumentar(state) {
+          state.numero++
+        }
+      }
+    });
+
+    let app = new Vue({
+      el: '#app',
+      store
+    })
+  </script>
+
+
+
+</body>
+</html>
