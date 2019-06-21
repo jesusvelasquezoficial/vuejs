@@ -27,13 +27,11 @@
       template: `
         <div class="">
           <button @click="$store.commit('aumentar')">+</button>
-          <h1>numero {{ getNumero }}</h1>
+          <h1>numero {{ numero }}</h1>
         </div>
       `,
       computed:{
-        getNumero(){
-          return store.state.numero
-        }
+        ...Vuex.mapState(['numero'])
       }
     });
 
