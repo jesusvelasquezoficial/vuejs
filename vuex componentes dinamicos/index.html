@@ -26,12 +26,17 @@
     Vue.component('hijo',{
       template: `
         <div class="">
-          <button @click="$store.commit('aumentar')">+</button>
+          <button @click="aumentar">+</button>
+          <button @click="disminutir(2)">-</button>
           <h1>numero {{ numero }}</h1>
         </div>
       `,
       computed:{
         ...Vuex.mapState(['numero'])
+      },
+      methods:{
+        ...Vuex.mapMutations(['aumentar']),
+        ...Vuex.mapMutations(['disminutir'])
       }
     });
 
@@ -42,6 +47,9 @@
       mutations: {
         aumentar(state) {
           state.numero++
+        },
+        disminutir(state, n){
+          state.numero -= n
         }
       }
     });
